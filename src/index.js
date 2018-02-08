@@ -10,11 +10,14 @@ function domAddPosition(element, type = 'relative', isCover = false) {
         dom.style.position = type;
     } else {
         // 先判断优先级高的
-        if (dom.style.position === '' || dom.style.position === 'static') {
+        if (dom.style.position === '') {
             // 当没给dom定位的时候 getComputedStyle(dom).position 浏览器获取到的是'static' jest获取到的值是''
             if (getComputedStyle(dom).position === 'static' || getComputedStyle(dom).position === '') {
                 dom.style.position = type;
             }
+        }
+        if (dom.style.position === 'static') {
+            dom.style.position = type;
         }
     }
 }

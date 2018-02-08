@@ -7,6 +7,10 @@ function domAddPosition(element) {
     var isCover = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
 
     var dom = getDomArray(element)[0];
+    if (!dom) {
+        console.log('no find dom');
+        return;
+    }
     if (isCover) {
         dom.style.position = type;
     } else {

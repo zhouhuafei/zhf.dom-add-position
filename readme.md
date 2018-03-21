@@ -6,7 +6,7 @@
     domAddPosition('div', 'relative', false);
     ```
 * 语法
-> domAddPosition(element, [type], [isCover]);
+    > domAddPosition(element, [type], [isCover]);
 * element 标签 可以是选择器 可以是原生dom 
 * type 默认 'relative'
 * isCover 默认 false

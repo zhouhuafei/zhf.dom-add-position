@@ -10,3 +10,8 @@ domAddPosition('div', 'relative', false);
 * element 标签 可以是选择器 可以是原生dom 
 * type 默认 'relative'
 * isCover 默认 false
+
+# 其他
+* 建议使用
+    - github https://github.com/zhouhuafei/zhf.dom-position
+    - npm https://www.npmjs.com/package/zhf.dom-position

@@ -1,6 +1,7 @@
 'use strict';
 
 var getDomArray = require('zhf.get-dom-array');
+var DomPosition = require('zhf.dom-position');
 
 function domAddPosition(element) {
     var type = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'relative';
@@ -14,14 +15,8 @@ function domAddPosition(element) {
     if (isCover) {
         dom.style.position = type;
     } else {
-        // 先判断优先级高的
-        if (dom.style.position === '') {
-            // 当没给dom定位的时候 getComputedStyle(dom).position 浏览器获取到的是'static' jest获取到的值是''
-            if (getComputedStyle(dom).position === 'static' || getComputedStyle(dom).position === '') {
-                dom.style.position = type;
-            }
-        }
-        if (dom.style.position === 'static') {
+        var domPosition = new DomPosition(dom);
+        if (!domPosition.hasPosition()) {
             dom.style.position = type;
         }
     }
